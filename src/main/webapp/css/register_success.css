@@ -1,0 +1,17 @@
+.success{
+    width: 90%;
+    padding: 60px 60px;
+    margin-bottom: 40px;
+}
+
+.heading{
+    padding: 10px 60px;
+    color: chocolate;
+}
+
+.success-info{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    padding: 10px 60px;
+}

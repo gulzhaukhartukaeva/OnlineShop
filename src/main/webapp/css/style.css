@@ -1,0 +1,12 @@
+.container{
+    padding-top: 50px;
+    padding-left: 150px;
+}
+
+.container input{
+    width: 400px;
+}
+
+.container button{
+    width: 200px;
+}
