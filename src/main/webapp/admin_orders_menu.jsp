@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 
@@ -30,18 +30,19 @@
             <th><fmt:message key="order.created"/></th>
             <th><fmt:message key="order.userId"/></th>
             <th><fmt:message key="order.statusId"/></th>
-            <th>Delivery Id</th>
-            <th>Order Detail Id</th>
+            <th><fmt:message key="order.totalPrice"/></th>
+            <th><fmt:message key="order.deliveryAddress"/></th>
+            <th><fmt:message key="action"/></th>
         </tr>
         </thead>
         <c:forEach var="order" items="${sessionScope.orders}">
             <tr>
                 <td>${order.id}</td>
-                <td>${order.dateCreated}</td>
+                <td>${order.orderDate}</td>
                 <td>${order.userId}</td>
-                <td>${order.statusId}</td>
-                <td>${order.deliveryId}</td>
-                <td>${order.orderDetailId}</td>
+                <td>${order.status.name}</td>
+                <td>${order.totalPrice}</td>
+                <td>${order.deliveryAddress}</td>
                 <td>
                     <form action="EditOrderPage">
                         <input type="hidden" name="id" value="${order.id}">

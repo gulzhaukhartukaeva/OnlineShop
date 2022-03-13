@@ -4,7 +4,7 @@
 <%@ page isELIgnored="false" %>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 
 <html>
 <head>
@@ -12,6 +12,7 @@
     <style><%@include file="/css/home.css"%></style>
     <style><%@include file="/css/footer.css"%></style>
     <style><%@include file="/css/cart.css"%></style>
+    <style><%@include file="/css/style.css"%></style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -51,7 +52,8 @@
     <form class="form-inline" action="pay">
             <label for="address" class="form-control" style="margin-left: 18px; margin-top: 20px; border: none">
                 <fmt:message key="input.address"/></label>
-            <input type="text" class="form-control" id="address" name="deliveryAddress" style="width: 600px; margin-top: 20px; margin-left: 30px;" required>
+            <input type="text" class="form-control" id="address" name="deliveryAddress" value="${sessionScope.address}"
+                   style="width: 1075px; margin-top: 20px; margin-left: 30px;" required>
             <input type="hidden" name="userId" value="${sessionScope.id}">
 
         <div class="form-group mx-sm-3 mb-2" style="margin-top: 40px;">
@@ -75,19 +77,13 @@
             <input type="date" class="form-control" id="expireDate" style="margin-top: 10px; margin-left: 102px; width: 222px;" required>
         </div>
 
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="amount" class="form-control" style="margin-top: 40px; border: none; margin-left: 222px; font-weight: 700;">
-                <fmt:message key="input.total.amount"/></label>
-            <input type="text" readonly class="form-control" id="amount" value="${sessionScope.cartWithItems}"
-                   style="width: 80px; margin-top: 38px; font-size: 20px; font-weight: 700; border: none; background: white; margin-left: 20px;">
-        </div>
         <div class="form-group mb-2">
-            <label for="totalPrice" class="form-control" style="margin-top: 40px; font-weight: 700; border: none;">
-                <fmt:message key="input.total.price"/></label>
-            <input type="text" readonly class="form-control" name="totalPrice" id="totalPrice" value="${sessionScope.totalPrice}"
-                   style="background: white; margin-top: 38px; font-weight: 700; border: none; width: 200px;">
+            <label for="totalPriceCard" class="form-control" style="margin-left:660px; margin-top: 40px; font-weight: 700; border: none;">
+                <fmt:message key="input.total.price"/>$</label>
+            <input type="text" readonly class="form-control" name="totalPriceCard" id="totalPriceCard"
+                   value="${sessionScope.totalPriceCard}" style="background: white; margin-top: 38px; font-weight: 700; border: none; width: 200px;">
         </div>
-        <button type="submit" class="btn btn-primary mb-2" style="margin-left: 660px; margin-top: 10px; background: cadetblue;">
+        <button type="submit" class="btn btn-primary mb-2" style="margin-left: 210px; margin-top: 10px; background: cadetblue;">
             <fmt:message key="button.pay"/></button>
     </form>
 </div>

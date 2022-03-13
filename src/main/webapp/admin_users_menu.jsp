@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 
@@ -30,7 +30,6 @@
             <th><fmt:message key="user.surname"/></th>
             <th><fmt:message key="user.name"/></th>
             <th><fmt:message key="user.email"/></th>
-            <th><fmt:message key="user.birthDate"/></th>
             <th><fmt:message key="user.phoneNumber"/></th>
             <th><fmt:message key="user.address"/></th>
             <th><fmt:message key="user.banned"/></th>
@@ -43,7 +42,6 @@
                 <td>${user.surname}</td>
                 <td>${user.name}</td>
                 <td>${user.email}</td>
-                <td>${user.birthDate}</td>
                 <td>${user.phoneNumber}</td>
                 <td>${user.address}</td>
                 <c:if test="${user.isBanned eq 'false'}">
@@ -52,7 +50,7 @@
                 <c:if test="${user.isBanned eq 'true'}">
                     <td>Yes</td>
                 </c:if>
-                <td>${user.role}</td>
+                <td>${user.role.name}</td>
                 <td>
                     <form action="EditUserPage">
                         <input type="hidden" name="id" value="${user.id}">

@@ -4,6 +4,7 @@
 <%@ page isELIgnored="false" %>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 
 <html>
 <head>
@@ -24,7 +25,7 @@
 <body>
 <jsp:include page="/navAdminSection.jsp"/>
 <jsp:include page="/menuSection.jsp"/>
-<div class="outer">
+<div class="outer" style="margin-left: 250px; width: 1100px;">
     <form action="addProductPage">
         <button type="submit" class="btnAdd"><fmt:message key="add.product"/></button>
     </form>
@@ -48,7 +49,7 @@
         <c:forEach var="product" items="${sessionScope.products}">
             <tr>
                 <td>${product.id}</td>
-                <td><img src="data:image/jpg;base64,${product.logo}" class="rounded-circle"
+                <td><img src="data:image/jpg;base64,${product.image}" class="rounded-circle"
                          alt="logo" height="100" width="100"/></td>
                 <td>${product.name}</td>
                 <td>${product.description}</td>

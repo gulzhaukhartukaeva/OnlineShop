@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 <html>
@@ -22,9 +22,10 @@
 <jsp:include page="/menuSection.jsp"/>
 <div class="outer" style="height: 440px;">
     <form action="addProduct" class="form-inline" style="margin-left: 50px; margin-right: 50px; margin-top: 50px; justify-content: space-between" enctype="multipart/form-data" method="post">
-        <div class="form-group mb-2">
-            <input type="file" name="image" required>
+        <input type="file" name="image" required>
+        <fmt:message key="file.type"/>
 
+        <div class="form-group mb-2">
             <input type="hidden" name="languageId" value="${Const.russianId}">
             <label class="form-control" for="nameRu" style="border: none; color: grey; font-weight: 100;"><fmt:message key="input.enter.name.ru"/></label>
             <input type="text" class="form-control" name="name" id="nameRu" style="width: 185px; border: 1px solid bisque;" required>

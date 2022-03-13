@@ -12,7 +12,7 @@
     <style><%@include file="/css/footer.css"%></style>
     <style><%@include file="/css/adminSection.css"%></style>
     <style><%@include file="/css/style.css"%></style>
-    <jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+    <jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 
     <title>Kitchen Profi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,7 +108,7 @@
                         <div class="product-card">
                             <div class="product-image">
                                 <span class="discount-tag"><b>${product.discount}% off</b></span>
-                                <img src="data:image/jpg;base64,${product.logo}" class="rounded-circle"
+                                <img src="data:image/jpg;base64,${product.image}" class="rounded-circle"
                                      height="350" width="250"/>
                                 <input type="hidden" name="productId" value="${product.id}">
                                 <button type="submit" class="card-btn">add to cart</button>

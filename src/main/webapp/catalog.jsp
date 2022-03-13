@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 
@@ -143,7 +143,7 @@
                                     <div class="product-card">
                                         <div class="product-image">
                                             <span class="discount-tag"><b>${product.discount}% off</b></span>
-                                            <img src="data:image/jpg;base64,${product.logo}" height="200" width="200" style="object-fit: cover;"/>
+                                            <img src="data:image/jpg;base64,${product.image}" height="200" width="200" style="object-fit: cover;"/>
                                             <input type="hidden" name="productId" value="${product.id}">
                                             <button type="submit" class="card-btn"><fmt:message key="add.to.cart"/></button>
                                         </div>

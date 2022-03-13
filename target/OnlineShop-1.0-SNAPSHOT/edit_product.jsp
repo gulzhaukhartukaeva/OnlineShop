@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 
@@ -23,7 +23,10 @@
 <jsp:include page="/navAdminSection.jsp"/>
 <jsp:include page="/menuSection.jsp"/>
 <div class="outer" style="height: 440px;">
-    <form action="editProduct" class="form-inline" style="margin-left: 50px; margin-right: 50px; margin-top: 50px; justify-content: space-between">
+    <form action="editProduct" class="form-inline" style="margin-left: 50px; margin-right: 50px; margin-top: 50px; justify-content: space-between" enctype="multipart/form-data" method="post">
+        <input type="file" name="image" required>
+        <fmt:message key="file.type"/>
+
         <div class="form-group mb-2">
             <input type="hidden" name="languageId" value="${Const.russianId}">
             <label class="form-control" for="nameRu" style="border: none; color: grey; font-weight: 100;"><fmt:message key="input.enter.name.ru"/></label>
@@ -126,7 +129,7 @@
             <input name="discount" type="number" id="discount" class="form-control" min="0" required value="${sessionScope.product.discount}"
                    style="margin-top: 20px; width: 100px; border: 1px solid bisque; margin-left: 44px; width: 250px;"/>
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-left: 780px; margin-top: 15px;"><fmt:message key="button.edit"/></button>
+        <button type="submit" class="btn btn-primary" style="margin-left: 777px;"><fmt:message key="button.edit"/></button>
     </form>
 </div>
 </body>

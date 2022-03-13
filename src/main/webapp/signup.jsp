@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 
@@ -44,20 +44,13 @@
                                     <div class="form-outline mb-4">
                                         <input class="form-control form-control-lg" type="email" placeholder="<fmt:message key="input.email"/>"
                                                name="email" id="email" required>
-                                        <c:if test="${requestScope.notCorrectEmail != null}">
-                                            <small class="text-danger"><fmt:message key="error.email"/></small>
-                                        </c:if>
-                                        <c:if test="${requestScope.loginIsExist != null}">
+                                        <c:if test="${requestScope.emailExist != null}">
                                             <small class="text-danger"><fmt:message key="error.email.exists"/></small>
                                         </c:if>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input class="form-control form-control-lg" type="date" placeholder="<fmt:message key="input.birthDate"/>"
-                                               name="birthDate" id="birthDate" required>
-                                    </div>
-                                    <div class="form-outline mb-4">
-                                        <input class="form-control form-control-lg" type="number" placeholder="<fmt:message key="input.phoneNumber"/>"
-                                               name="phoneNumber" id="phoneNumber" required>
+                                        <input class="form-control form-control-lg" type="text" placeholder="<fmt:message key="input.phoneNumber"/>"
+                                               name="phoneNumber" id="phoneNumber" required maxlength="15">
                                         <c:if test="${requestScope.notCorrectPhone != null}">
                                             <small class="text-danger"><fmt:message key="error.phone"/></small>
                                         </c:if>
@@ -65,6 +58,9 @@
                                     <div class="form-outline mb-4">
                                         <input class="form-control form-control-lg" type="password" placeholder="<fmt:message key="input.password"/>"
                                                name="password" id="password" required>
+                                        <c:if test="${requestScope.notCorrectPassword != null}">
+                                            <small class="text-danger"><fmt:message key="error.password"/></small>
+                                        </c:if>
                                     </div>
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message key="sign.up"/></button>

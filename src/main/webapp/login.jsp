@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<jsp:useBean id="Const" class="com.epam.onlineShopService.constants.GeneralConstants"/>
+<jsp:useBean id="Const" class="com.epam.online.shop.service.constants.GeneralConstants"/>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="language"/>
 
@@ -45,6 +45,9 @@
                                         <input name="password" type="password" id="password" class="form-control form-control-lg"
                                                placeholder="<fmt:message key="input.enter.password"/>" required/>
                                     </div>
+                                    <c:if test="${requestScope.notCorrectEmailPassword != null}">
+                                        <small class="text-danger"><fmt:message key="error.login"/></small>
+                                    </c:if>
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message key="button.login"/></button>
                                         <button class="btn btn-dark btn-lg btn-block" type="button"><fmt:message key="button.cancel"/></button>
